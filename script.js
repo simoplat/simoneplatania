@@ -235,6 +235,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ── Hero Dot-Grid Canvas ─────────────────────────────────────────────────
+    const heroCanvas = document.getElementById('hero-canvas');
+    if (heroCanvas) {
+        const hCtx = heroCanvas.getContext('2d');
+        const SPACING = 36;       // grid cell size
+        const DOT_R  = 1.6;       // base dot radius
+        const FORCE  = 110;       // repulsion radius
+        const STRENGTH = 0.38;    // repulsion strength
+        let hMouse = { x: -9999, y: -9999 };
+        let dots = [];
+        let hW, hH;
+
+        function buildGrid() {
+            hW = heroCanvas.offsetWidth;
+            hH = heroCanvas.offsetHeight;
+            heroCanvas.width  = hW;
+            heroCanvas.height = hH;
+            dots = [];
+            const cols = Math.ceil(hW / SPACING) + 1;
+            const rows = Math.ceil(hH / SPACING) + 1;
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    dots.push({
+                        ox: c * SPACING,   // origin X
+                        oy: r * SPACING,   // origin Y
+                        x:  c * SPACING,   // current X
+                        y:  r * SPACING,   // current Y
+                        vx: 0,
+                        vy: 0,
+                    });
+                }
+            }
+        }
+
+        heroCanvas.addEventListener('mousemove', e => {
+            const rect = heroCanvas.getBoundingClientRect();
+            hMouse.x = e.clientX - rect.left;
+            hMouse.y = e.clientY - rect.top;
+        });
+        heroCanvas.addEventListener('mouseleave', () => {
+            hMouse.x = -9999;
+            hMouse.y = -9999;
+        });
+
+        // Forward mouse events from the section (since canvas is pointer-events:none we listen on the section)
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            heroSection.addEventListener('mousemove', e => {
+                const rect = heroCanvas.getBoundingClientRect();
+                hMouse.x = e.clientX - rect.left;
+                hMouse.y = e.clientY - rect.top;
+            });
+            heroSection.addEventListener('mouseleave', () => {
+                hMouse.x = -9999;
+                hMouse.y = -9999;
+            });
+        }
+
+        let hFrame = 0;
+        function animateHero() {
+            hCtx.clearRect(0, 0, hW, hH);
+            hFrame++;
+
+            dots.forEach(d => {
+                // Idle wave
+                const wave = Math.sin(hFrame * 0.018 + d.ox * 0.025 + d.oy * 0.02) * 2.2;
+
+                // Cursor repulsion
+                const dx = d.ox - hMouse.x;
+                const dy = d.oy - hMouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                let tx = d.ox, ty = d.oy + wave;
+                if (dist < FORCE && dist > 0) {
+                    const push = (1 - dist / FORCE) * STRENGTH * FORCE;
+                    tx += (dx / dist) * push;
+                    ty += (dy / dist) * push + wave;
+                }
+
+                // Spring towards target
+                d.vx += (tx - d.x) * 0.12;
+                d.vy += (ty - d.y) * 0.12;
+                d.vx *= 0.72;
+                d.vy *= 0.72;
+                d.x  += d.vx;
+                d.y  += d.vy;
+
+                // Draw dot — brighter when displaced
+                const disp = Math.sqrt((d.x-d.ox)**2 + (d.y-d.oy)**2);
+                const alpha = 0.35 + Math.min(disp / 60, 1) * 0.50;
+                const radius = DOT_R + Math.min(disp / 38, 1) * 1.6;
+                hCtx.beginPath();
+                hCtx.arc(d.x, d.y, radius, 0, Math.PI * 2);
+                hCtx.fillStyle = `rgba(160, 100, 255, ${alpha})`;
+                hCtx.fill();
+            });
+
+            requestAnimationFrame(animateHero);
+        }
+
+        buildGrid();
+        animateHero();
+        window.addEventListener('resize', buildGrid);
+    }
+    // ────────────────────────────────────────────────────────────────────────
+
     // Navbar Scrolled State
     const header = document.querySelector('header');
     if (header) {
