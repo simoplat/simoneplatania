@@ -87,19 +87,31 @@ class Particle {
         this.y = y;
         this.canvas = canvas;
         this.ctx = ctx;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1.5 - 0.75;
-        this.speedY = Math.random() * 1.5 - 0.75;
-        this.color = 'rgba(139, 92, 246, 0.5)';
-        this.life = 100;
+        // Dimensione molto più varia (molte piccole, alcune molto grandi)
+        this.size = (Math.random() * Math.random()) * 7 + 0.5;
+
+        // Movimento più caotico e veloce
+        this.speedX = Math.random() * 2.5 - 1.25;
+        this.speedY = Math.random() * 2.5 - 1.25;
+
+        // Opacità iniziale casuale per ogni particella
+        const alpha = Math.random() * 0.5 + 0.2; // tra 0.2 e 0.7
+        this.color = `rgba(139, 92, 246, ${alpha})`;
+
+        // Velocità di rimpicciolimento molto variabile
+        this.shrinkRate = Math.random() * 0.07 + 0.015;
     }
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        this.life -= 2;
-        if (this.size > 0.1) this.size -= 0.02;
+        if (this.size > this.shrinkRate) {
+            this.size -= this.shrinkRate;
+        } else {
+            this.size = 0;
+        }
     }
     draw() {
+        if (this.size <= 0) return;
         this.ctx.fillStyle = this.color;
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -138,9 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 isMouseMoving = false;
             }, 100);
 
-            // Add particles on mouse move
-            for (let i = 0; i < 2; i++) {
-                particlesArray.push(new Particle(mouse.x, mouse.y, canvas, ctx));
+            // Aggiungi particelle al movimento del mouse solo se non siamo sulla sezione hero e non sulla navbar
+            if (!e.target.closest('#hero') && !e.target.closest('#navbar')) {
+                for (let i = 0; i < 2; i++) {
+                    particlesArray.push(new Particle(mouse.x, mouse.y, canvas, ctx));
+                }
             }
         });
 
@@ -148,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < particlesArray.length; i++) {
                 particlesArray[i].update();
                 particlesArray[i].draw();
-                if (particlesArray[i].life <= 0) {
+                if (particlesArray[i].size <= 0) {
                     particlesArray.splice(i, 1);
                     i--;
                 }
@@ -191,21 +205,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const activeLabel = langToggle.querySelector('.lang-active-label');
         const inactiveLabel = langToggle.querySelector('.lang-inactive-label');
 
-        langToggle.addEventListener('click', () => {
-            const currentLang = langToggle.getAttribute('data-lang');
-            const newLang = currentLang === 'en' ? 'it' : 'en';
-            langToggle.setAttribute('data-lang', newLang);
-
-            // Swap labels: active shows new language, inactive shows old
-            activeLabel.textContent = newLang.toUpperCase();
-            inactiveLabel.textContent = currentLang.toUpperCase();
+        const setLanguage = (lang) => {
+            langToggle.setAttribute('data-lang', lang);
+            const otherLang = lang === 'en' ? 'it' : 'en';
+            activeLabel.textContent = lang.toUpperCase();
+            inactiveLabel.textContent = otherLang.toUpperCase();
 
             i18nElements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (i18n[newLang] && i18n[newLang][key]) {
-                    el.textContent = i18n[newLang][key];
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.textContent = i18n[lang][key];
                 }
             });
+            localStorage.setItem('lang', lang);
+        };
+
+        // Initialize language
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang) {
+            if (savedLang === 'it') setLanguage('it');
+        } else {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang && browserLang.toLowerCase().startsWith('it')) {
+                setLanguage('it');
+            }
+        }
+
+        langToggle.addEventListener('click', () => {
+            const currentLang = langToggle.getAttribute('data-lang');
+            const newLang = currentLang === 'en' ? 'it' : 'en';
+            setLanguage(newLang);
         });
     }
 
@@ -233,6 +262,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.overflow = '';
             });
         });
+
+        // Ensure scrolling is re-enabled if window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                if (navLinks.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
     }
 
     // ── Hero Dot-Grid Canvas ─────────────────────────────────────────────────
@@ -240,9 +280,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroCanvas) {
         const hCtx = heroCanvas.getContext('2d');
         const SPACING = 36;       // grid cell size
-        const DOT_R  = 1.6;       // base dot radius
-        const FORCE  = 110;       // repulsion radius
-        const STRENGTH = 0.38;    // repulsion strength
+        const DOT_R = 1.6;       // base dot radius
+        const FORCE = 140;       // repulsion radius (increased)
+        const STRENGTH = 0.45;    // repulsion strength (increased)
         let hMouse = { x: -9999, y: -9999 };
         let dots = [];
         let hW, hH;
@@ -250,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function buildGrid() {
             hW = heroCanvas.offsetWidth;
             hH = heroCanvas.offsetHeight;
-            heroCanvas.width  = hW;
+            heroCanvas.width = hW;
             heroCanvas.height = hH;
             dots = [];
             const cols = Math.ceil(hW / SPACING) + 1;
@@ -260,8 +300,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     dots.push({
                         ox: c * SPACING,   // origin X
                         oy: r * SPACING,   // origin Y
-                        x:  c * SPACING,   // current X
-                        y:  r * SPACING,   // current Y
+                        x: c * SPACING,   // current X
+                        y: r * SPACING,   // current Y
                         vx: 0,
                         vy: 0,
                     });
@@ -300,17 +340,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             dots.forEach(d => {
                 // Idle wave
-                const wave = Math.sin(hFrame * 0.018 + d.ox * 0.025 + d.oy * 0.02) * 2.2;
+                const waveY = Math.sin(hFrame * 0.02 + d.ox * 0.025 + d.oy * 0.02) * 3.8;
+                const waveX = Math.cos(hFrame * 0.015 + d.ox * 0.02 + d.oy * 0.025) * 2.5;
 
                 // Cursor repulsion
                 const dx = d.ox - hMouse.x;
                 const dy = d.oy - hMouse.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                let tx = d.ox, ty = d.oy + wave;
+                let tx = d.ox + waveX, ty = d.oy + waveY;
                 if (dist < FORCE && dist > 0) {
                     const push = (1 - dist / FORCE) * STRENGTH * FORCE;
                     tx += (dx / dist) * push;
-                    ty += (dy / dist) * push + wave;
+                    ty += (dy / dist) * push; // waveX/Y are already added to tx/ty
                 }
 
                 // Spring towards target
@@ -318,11 +359,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 d.vy += (ty - d.y) * 0.12;
                 d.vx *= 0.72;
                 d.vy *= 0.72;
-                d.x  += d.vx;
-                d.y  += d.vy;
+                d.x += d.vx;
+                d.y += d.vy;
 
                 // Draw dot — brighter when displaced
-                const disp = Math.sqrt((d.x-d.ox)**2 + (d.y-d.oy)**2);
+                const disp = Math.sqrt((d.x - d.ox) ** 2 + (d.y - d.oy) ** 2);
                 const alpha = 0.35 + Math.min(disp / 60, 1) * 0.50;
                 const radius = DOT_R + Math.min(disp / 38, 1) * 1.6;
                 hCtx.beginPath();
