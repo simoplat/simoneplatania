@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simone Platania | Minimalist</title>
-    <meta name="description" content="Modern minimalist CV and portfolio.">
+    <title>Simone Platania | Portfolio</title>
+    <meta name="description" content="Ingegnere Informatico & Software Developer - Portfolio di Simone Platania.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,25 +15,54 @@
 
     <header id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Simone Platania<span style="color: var(--accent-color)"></span></a>
+            <a href="#" class="logo">Simone Platania<span style="color: var(--accent-color)">.</span></a>
             <div class="nav-right">
                 <nav>
                     <ul class="nav-links">
-                        <li><a href="#about" data-i18n="nav_about">About</a></li>
-                        <li><a href="#experience" data-i18n="nav_exp">Experience</a></li>
-                        <li><a href="#education" data-i18n="nav_edu">Education</a></li>
-                        <li><a href="#projects" data-i18n="nav_work">Work</a></li>
-                        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                        <li><a href="#about" data-i18n="nav_about">Chi Sono</a></li>
+                        <li><a href="#education" data-i18n="nav_edu">Istruzione</a></li>
+                        <li><a href="#projects" data-i18n="nav_work">Progetti</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Contatti</a></li>
                         <li class="nav-toggles-wrapper">
-                            <button id="lang-toggle" class="lang-toggle-btn" data-lang="en"
-                                aria-label="Switch language">
-                                <span class="lang-toggle-track">
-                                    <span class="lang-toggle-thumb">
-                                        <span class="lang-active-label">EN</span>
-                                    </span>
-                                    <span class="lang-inactive-label">IT</span>
-                                </span>
-                            </button>
+                            <!-- Globe Dropdown Language Selector -->
+                            <div class="lang-dropdown-wrapper" id="lang-dropdown-wrapper">
+                                <button id="lang-dropdown-btn" class="lang-dropdown-btn" aria-label="Seleziona lingua"
+                                    aria-expanded="false" aria-haspopup="true">
+                                    <svg class="icon-globe" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>
+                                    <span class="lang-current-label" id="lang-current-label">IT</span>
+                                    <svg class="icon-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                                <ul class="lang-dropdown-menu" id="lang-menu" role="menu">
+                                    <li role="menuitem">
+                                        <button type="button" class="lang-option active" data-lang="it">
+                                            <span class="lang-flag">🇮🇹</span>
+                                            <span class="lang-name">Italiano</span>
+                                            <span class="lang-code">IT</span>
+                                        </button>
+                                    </li>
+                                    <li role="menuitem">
+                                        <button type="button" class="lang-option" data-lang="en">
+                                            <span class="lang-flag">🇬🇧</span>
+                                            <span class="lang-name">English</span>
+                                            <span class="lang-code">EN</span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Theme Toggle -->
                             <button id="theme-toggle" class="theme-toggle-btn" aria-label="Switch theme">
                                 <!-- Moon icon (dark mode active) -->
                                 <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
@@ -59,7 +88,7 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="hamburger">
+                <div class="hamburger" aria-label="Toggle navigation">
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
@@ -74,21 +103,21 @@
             <canvas id="hero-canvas"></canvas>
             <div class="container hero-container">
                 <div class="hero-text fade-in">
-                    <p class="greeting" data-i18n="hero_greeting">Hello, I am</p>
+                    <p class="greeting" data-i18n="hero_greeting">Ciao, sono</p>
                     <h1 class="title">Simone Platania</h1>
-                    <h2 class="subtitle" data-i18n="hero_subtitle">Creative Developer & Designer</h2>
+                    <h2 class="subtitle" data-i18n="hero_subtitle">Ingegnere Informatico & Software Developer</h2>
                     <p class="description" data-i18n="hero_desc">
-                        I craft elevated digital experiences with a focus on minimalist design, clean code, and
-                        user-centric interactions.
+                        Laureato in Ingegneria Informatica con passione per lo sviluppo software, reti e
+                        telecomunicazioni, agenti AI, IoT, sistemi embedded, sicurezza informatica e cybersecurity.
                     </p>
                     <div class="hero-actions">
-                        <a href="#contact" class="btn btn-primary" data-i18n="btn_contact">Get in Touch</a>
-                        <a href="#projects" class="btn btn-secondary" data-i18n="btn_work">View My Work</a>
+                        <a href="#contact" class="btn btn-primary" data-i18n="btn_contact">Contattami</a>
+                        <a href="#projects" class="btn btn-secondary" data-i18n="btn_work">I Miei Progetti</a>
                     </div>
                 </div>
                 <div class="hero-visual fade-in">
                     <div class="image-wrapper">
-                        <img src="assets/profile_avatar.png" alt="Profile" class="profile-img">
+                        <img src="assets/profile_avatar.png" alt="Simone Platania" class="profile-img">
                         <div class="img-backdrop"></div>
                     </div>
                 </div>
@@ -98,62 +127,29 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title reveal-text" data-i18n="about_title">About Me</h2>
+                <h2 class="section-title reveal-text" data-i18n="about_title">Chi Sono</h2>
                 <div class="about-content">
                     <div class="about-text fade-in-up">
-                        <p data-i18n="about_p1">With a passion for aesthetics and functionality, I build digital
-                            products that not only look beautiful but perform flawlessly. My approach combines strategic
-                            thinking with modern web technologies.</p>
-                        <p data-i18n="about_p2">I specialize in creating responsive, accessible, and highly interactive
-                            websites that leave a lasting impression.</p>
+                        <p data-i18n="about_p1">Laureato in Ingegneria Informatica (L-8) presso l'Università degli Studi
+                            di Catania, con solide competenze nell'ingegneria del software, reti di calcolatori e
+                            sviluppo moderno.</p>
+                        <p data-i18n="about_p2">Appassionato di sistemi software scalabili, elaborazione del segnale,
+                            agenti AI e applicazioni web reattive e performanti.</p>
                     </div>
                     <div class="skills-container fade-in-up">
-                        <h3 data-i18n="skills_title">Core Skills</h3>
+                        <h3 data-i18n="skills_title">Competenze Tecniche</h3>
                         <div class="skills-grid">
-                            <span class="skill-tag">HTML5 / CSS3</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React.js</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">UI/UX Design</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">Animation</span>
-                            <span class="skill-tag">Performance</span>
-                            <span class="skill-tag">C/C++</span>
-                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C++</span>
                             <span class="skill-tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="experience-section">
-            <div class="container">
-                <h2 class="section-title reveal-text" data-i18n="exp_title">Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item fade-in-up">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 data-i18n="exp1_role">Senior Developer</h3>
-                                <span class="timeline-date" data-i18n="exp1_date">2021 — Present</span>
-                            </div>
-                            <h4 class="company">Tech Studio</h4>
-                            <p data-i18n="exp1_desc">Led the frontend development team in building scalable web
-                                applications. Mentored junior developers and established design system guidelines.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item fade-in-up">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 data-i18n="exp2_role">UI/UX Designer & Developer</h3>
-                                <span class="timeline-date" data-i18n="exp2_date">2018 — 2021</span>
-                            </div>
-                            <h4 class="company">Creative Agency</h4>
-                            <p data-i18n="exp2_desc">Designed and implemented high-end portfolios, e-commerce platforms,
-                                and interactive campaigns for international clients.</p>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">Arduino</span>
+                            <span class="skill-tag">VHDL</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag skill-highlight" data-i18n="skill_ai">Agenti AI</span>
                         </div>
                     </div>
                 </div>
@@ -161,31 +157,34 @@
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="experience-section" style="padding-top: 0;">
+        <section id="education" class="experience-section">
             <div class="container">
-                <h2 class="section-title reveal-text" data-i18n="edu_title">Education</h2>
+                <h2 class="section-title reveal-text" data-i18n="edu_title">Istruzione</h2>
                 <div class="timeline">
+                    <!-- Most recent: Ingegneria Informatica L-8 Università degli Studi di Catania 2022-2025 voto 105 -->
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="edu1_degree">Master in Computer Science</h3>
-                                <span class="timeline-date" data-i18n="edu1_date">2016 — 2018</span>
+                                <h3 data-i18n="edu1_degree">Laurea Triennale in Ingegneria Informatica (L-8)</h3>
+                                <span class="timeline-date" data-i18n="edu1_date">2022 — 2025</span>
                             </div>
-                            <h4 class="company" data-i18n="edu1_school">University of Technology</h4>
-                            <p data-i18n="edu1_desc">Specialized in Software Engineering and Human-Computer Interaction.
-                                Graduated with honors.</p>
+                            <h4 class="company" data-i18n="edu1_school">Università degli Studi di Catania</h4>
+                            <p data-i18n="edu1_desc">Voto: 105. Tesi di laurea su tecniche di Deep Learning applicate
+                                alla previsione e analisi del Rischio Idrogeologico.</p>
                         </div>
                     </div>
+                    <!-- 2015-2020: Liceo Scientifico Concetto Marchesi 2015-2020 voto 100 -->
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="edu2_degree">High School Diploma</h3>
-                                <span class="timeline-date" data-i18n="edu2_date">2011 — 2016</span>
+                                <h3 data-i18n="edu2_degree">Diploma di Maturità Scientifica</h3>
+                                <span class="timeline-date" data-i18n="edu2_date">2015 — 2020</span>
                             </div>
-                            <h4 class="company" data-i18n="edu2_school">Scientific High School</h4>
-                            <p data-i18n="edu2_desc">Focus on Mathematics, Physics, and Computer Science.</p>
+                            <h4 class="company" data-i18n="edu2_school">Liceo Scientifico Concetto Marchesi</h4>
+                            <p data-i18n="edu2_desc">Voto: 100/100. Percorso scientifico con approfondimento in
+                                matematica, fisica, logica e scienze applicate.</p>
                         </div>
                     </div>
                 </div>
@@ -195,28 +194,174 @@
         <!-- Projects Section -->
         <section id="projects" class="projects-section">
             <div class="container">
-                <h2 class="section-title reveal-text" data-i18n="work_title">Selected Work</h2>
+                <h2 class="section-title reveal-text" data-i18n="work_title">Progetti Svolti</h2>
                 <div class="projects-grid">
+                    <!-- Project 1: Tesi Deep Learning Rischio Idrogeologico -->
                     <article class="project-card fade-in-up">
                         <div class="project-img-wrapper">
-                            <img src="assets/project_1.png" alt="Project 1" loading="lazy">
+                            <img src="assets/project_thesis.jpg" alt="Tesi Deep Learning Rischio Idrogeologico"
+                                loading="lazy">
                         </div>
                         <div class="project-info">
-                            <span class="project-category" data-i18n="proj1_cat">E-Commerce</span>
-                            <h3>Aura Boutique</h3>
-                            <a href="#" class="project-link"><span data-i18n="btn_view_proj">View Project</span> <span
-                                    class="arrow">→</span></a>
+                            <span class="project-category" data-i18n="proj_thesis_cat">Deep Learning & AI</span>
+                            <h3 data-i18n="proj_thesis_title">Tesi: Deep Learning per il Rischio Idrogeologico</h3>
+                            <p class="project-desc" data-i18n="proj_thesis_desc">Studio e applicazione di architetture
+                                di Deep Learning per l'elaborazione di dati geo-ambientali, analisi del territorio e
+                                modelli predittivi per la stima e mitigazione del rischio idrogeologico.</p>
+                            <div class="project-tags">
+                                <span class="tag-pill">Deep Learning</span>
+                                <span class="tag-pill">Python</span>
+                                <span class="tag-pill">Neural Networks</span>
+                                <span class="tag-pill">GIS & Dati Territoriali</span>
+                            </div>
+                            <div class="project-links-group">
+                                <span class="project-badge" data-i18n="badge_thesis">Tesi di Laurea</span>
+                            </div>
                         </div>
                     </article>
+
+                    <!-- Project 2: YouTube Clone & Social Platform -->
                     <article class="project-card fade-in-up">
                         <div class="project-img-wrapper">
-                            <img src="assets/project_2.png" alt="Project 2" loading="lazy">
+                            <img src="assets/project_youtube_clone.jpg" alt="YouTube Clone & Social Platform"
+                                loading="lazy">
                         </div>
                         <div class="project-info">
-                            <span class="project-category" data-i18n="proj2_cat">SaaS Platform</span>
-                            <h3>Nexus Analytics</h3>
-                            <a href="#" class="project-link"><span data-i18n="btn_view_proj">View Project</span> <span
-                                    class="arrow">→</span></a>
+                            <span class="project-category" data-i18n="proj_youtube_cat">Sviluppo Web Full-Stack</span>
+                            <h3 data-i18n="proj_youtube_title">YouTube Clone & Social Platform</h3>
+                            <p class="project-desc" data-i18n="proj_youtube_desc">Piattaforma social video con
+                                interfaccia grafica ispirata a YouTube, interazione dinamica frontend-backend, gestione
+                                video e database; inizialmente sviluppata in PHP e MySQL, successivamente portata su
+                                framework Laravel.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag-pill">PHP</span>
+                                <span class="tag-pill">Laravel</span>
+                                <span class="tag-pill">MySQL / SQL</span>
+                                <span class="tag-pill">JavaScript</span>
+                                <span class="tag-pill">UI / UX</span>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/simoplat/hw2" target="_blank" rel="noopener noreferrer"
+                                    class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span data-i18n="btn_view_proj">Vedi su GitHub</span>
+                                    <span class="arrow">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: GNU Radio -->
+                    <article class="project-card fade-in-up">
+                        <div class="project-img-wrapper">
+                            <img src="assets/project_gnuradio.jpg" alt="GNU Radio" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category" data-i18n="proj_gnuradio_cat">Sistemi DSP & SDR</span>
+                            <h3 data-i18n="proj_gnuradio_title">GNU Radio Signal Processing</h3>
+                            <p class="project-desc" data-i18n="proj_gnuradio_desc">Flowgraph Software Defined Radio per
+                                elaborazione digitale dei segnali, analisi spettrale, modulazione/demodulazione e
+                                comunicazioni RF.</p>
+                            <div class="project-tags">
+                                <span class="tag-pill">GNU Radio</span>
+                                <span class="tag-pill">Python</span>
+                                <span class="tag-pill">C++</span>
+                                <span class="tag-pill">DSP</span>
+                            </div>
+                            <div class="project-links-group">
+                                <span class="project-badge">SDR / Signal Processing</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Progetto Ingegneria del Software -->
+                    <article class="project-card fade-in-up">
+                        <div class="project-img-wrapper">
+                            <img src="assets/project_sweng.jpg" alt="Progetto Ingegneria del Software" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category" data-i18n="proj_sweng_cat">Ingegneria del Software</span>
+                            <h3 data-i18n="proj_sweng_title">Progetto Ingegneria del Software</h3>
+                            <p class="project-desc" data-i18n="proj_sweng_desc">Progetto software completo sviluppato
+                                seguendo pattern architetturali, principi di clean code, testing e controllo di versione
+                                con GitHub.</p>
+                            <div class="project-tags">
+                                <span class="tag-pill">Java</span>
+                                <span class="tag-pill">Design Patterns</span>
+                                <span class="tag-pill">Git / GitHub</span>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/simoplat/UniCenter" target="_blank"
+                                    rel="noopener noreferrer" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span data-i18n="btn_view_proj">Vedi su GitHub</span>
+                                    <span class="arrow">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: OMNeT++ -->
+                    <article class="project-card fade-in-up">
+                        <div class="project-img-wrapper">
+                            <img src="assets/project_omnet.jpg" alt="OMNeT++" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category" data-i18n="proj_omnet_cat">Simulazione di Reti</span>
+                            <h3 data-i18n="proj_omnet_title">OMNeT++ Network Simulator</h3>
+                            <p class="project-desc" data-i18n="proj_omnet_desc">Simulazioni ad eventi discreti per
+                                l'analisi di instradamento pacchetti, congestione di rete, topologie complesse e
+                                metriche di prestazione.</p>
+                            <div class="project-tags">
+                                <span class="tag-pill">OMNeT++</span>
+                                <span class="tag-pill">C++</span>
+                                <span class="tag-pill">NED</span>
+                                <span class="tag-pill">Networking</span>
+                            </div>
+                            <div class="project-links-group">
+                                <span class="project-badge">Network Simulation</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: ESP32 Smart Home -->
+                    <article class="project-card fade-in-up">
+                        <div class="project-img-wrapper">
+                            <img src="assets/project_esp32.jpg" alt="ESP32 Smart Home Automation" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category" data-i18n="proj_esp32_cat">IoT & Sistemi Embedded</span>
+                            <h3 data-i18n="proj_esp32_title">ESP32 Smart Home Automation</h3>
+                            <p class="project-desc" data-i18n="proj_esp32_desc">Sistema di automazione domestica basato
+                                su microcontrollore ESP32, sensori ambientali (temperatura, umidità, illuminazione),
+                                tramite Bot Telegram.</p>
+                            <div class="project-tags">
+                                <span class="tag-pill">ESP32</span>
+                                <span class="tag-pill">C / C++</span>
+                                <span class="tag-pill">IoT</span>
+                                <span class="tag-pill">Sensors</span>
+                            </div>
+                            <div class="project-links-group">
+                                <a href="https://github.com/simoplat" target="_blank" rel="noopener noreferrer"
+                                    class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span data-i18n="btn_view_proj">Vedi su GitHub</span>
+                                    <span class="arrow">→</span>
+                                </a>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -227,9 +372,9 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 <div class="contact-content fade-in-up">
-                    <h2 class="section-title" data-i18n="contact_title">Let's create something together.</h2>
-                    <p class="contact-desc" data-i18n="contact_desc">Currently available for freelance opportunities and
-                        full-time roles.</p>
+                    <h2 class="section-title" data-i18n="contact_title">Creiamo qualcosa insieme.</h2>
+                    <p class="contact-desc" data-i18n="contact_desc">Disponibile per nuove opportunità professionali,
+                        collaborazioni e progetti software.</p>
                     <a href="mailto:hello@example.com" class="email-link">hello@example.com</a>
 
                     <div class="social-links">
@@ -242,7 +387,7 @@
                             </svg>
                             <span>Email</span>
                         </a>
-                        <a href="https://github.com/simoplat " target="_blank" rel="noopener noreferrer"
+                        <a href="https://github.com/simoplat" target="_blank" rel="noopener noreferrer"
                             class="social-link" aria-label="GitHub">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                 fill="currentColor">
@@ -270,9 +415,8 @@
 
     <footer>
         <div class="container footer-container">
-            <p>&copy; <span id="year"></span> Simone Platania. <span data-i18n="footer_rights">All rights
-                    reserved.</span></p>
-            <p class="footer-note" data-i18n="footer_note">Designed with precision.</p>
+            <p>&copy; <span id="year"></span> Simone Platania. <span data-i18n="footer_rights">Tutti i diritti
+                    riservati.</span></p>
         </div>
     </footer>
 

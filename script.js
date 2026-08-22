@@ -1,81 +1,101 @@
 const i18n = {
     en: {
         nav_about: "About",
-        nav_exp: "Experience",
-        nav_work: "Work",
+        nav_work: "Projects",
         nav_contact: "Contact",
-        hero_greeting: "Hello, I am",
-        hero_subtitle: "Creative Developer & Designer",
-        hero_desc: "I craft elevated digital experiences with a focus on minimalist design, clean code, and user-centric interactions.",
-        btn_contact: "Get in Touch",
-        btn_work: "View My Work",
-        about_title: "About Me",
-        about_p1: "With a passion for aesthetics and functionality, I build digital products that not only look beautiful but perform flawlessly. My approach combines strategic thinking with modern web technologies.",
-        about_p2: "I specialize in creating responsive, accessible, and highly interactive websites that leave a lasting impression.",
-        skills_title: "Core Skills",
-        exp_title: "Experience",
-        exp1_role: "Senior Developer",
-        exp1_date: "2021 — Present",
-        exp1_desc: "Led the frontend development team in building scalable web applications. Mentored junior developers and established design system guidelines.",
-        exp2_role: "UI/UX Designer & Developer",
-        exp2_date: "2018 — 2021",
-        exp2_desc: "Designed and implemented high-end portfolios, e-commerce platforms, and interactive campaigns for international clients.",
         nav_edu: "Education",
+        hero_greeting: "Hello, I am",
+        hero_subtitle: "Computer Engineering & Software Developer",
+        hero_desc: "Computer engineering graduate passionate about software development, network systems, AI agents, IoT, embedded systems, computer security and cybersecurity.",
+        btn_contact: "Get in Touch",
+        btn_work: "View My Projects",
+        about_title: "About Me",
+        about_p1: "Graduated in Computer Engineering (L-8) from the University of Catania, with a strong foundation in software engineering, networking, and modern development paradigms.",
+        about_p2: "Passionate about building scalable systems, signal processing, AI agents, and clean minimalist web applications.",
+        skills_title: "Technical Skills",
+        skill_ai: "AI Agents",
         edu_title: "Education",
-        edu1_degree: "Bachelor's Degree in Computer Engineering",
+        edu1_degree: "Bachelor's Degree in Computer Engineering (L-8)",
         edu1_date: "2022 — 2025",
-        edu1_school: "University",
-        edu1_desc: "Focus on software development, computer systems, and engineering principles.",
+        edu1_school: "Università degli Studi di Catania",
+        edu1_desc: "Final Grade: 105. Bachelor's thesis on Deep Learning techniques applied to hydrogeological risk prediction and environmental analysis.",
         edu2_degree: "Scientific High School Diploma",
         edu2_date: "2015 — 2020",
-        edu2_school: "Scientific High School",
-        edu2_desc: "Final Grade: 100/100.",
-        work_title: "Selected Work",
-        proj1_cat: "E-Commerce",
-        proj2_cat: "SaaS Platform",
-        btn_view_proj: "View Project",
+        edu2_school: "Liceo Scientifico Concetto Marchesi",
+        edu2_desc: "Final Grade: 100/100. Strong focus on mathematics, physics, logic, and scientific studies.",
+        work_title: "Featured Projects",
+        btn_view_proj: "View on GitHub",
+        badge_thesis: "Bachelor Thesis",
+        proj_thesis_cat: "Deep Learning & AI",
+        proj_thesis_title: "Thesis: Deep Learning for Hydrogeological Risk",
+        proj_thesis_desc: "Research and application of Deep Learning architectures for processing geo-environmental data, terrain analysis, and predictive modeling for hydrogeological risk assessment and mitigation.",
+        proj_youtube_cat: "Full-Stack Web Development",
+        proj_youtube_title: "YouTube Clone & Social Platform",
+        proj_youtube_desc: "Social video platform replicating YouTube UI, featuring dynamic frontend-backend interaction, video management, and database; originally built with PHP and MySQL, then ported to the Laravel framework.",
+        proj_sweng_cat: "Software Engineering",
+        proj_sweng_title: "Software Engineering Project",
+        proj_sweng_desc: "Complete software engineering project developed following design patterns, clean architecture, automated testing, and CI/CD version control.",
+        proj_gnuradio_cat: "DSP & SDR Systems",
+        proj_gnuradio_title: "GNU Radio Signal Processing",
+        proj_gnuradio_desc: "Software Defined Radio flowgraphs for digital signal processing, spectral analysis, modulation/demodulation, and RF communications.",
+        proj_omnet_cat: "Network Simulation",
+        proj_omnet_title: "OMNeT++ Network Simulator",
+        proj_omnet_desc: "Discrete event network simulation analyzing packet routing, congestion control, network topologies, and protocol performance metrics.",
+        proj_esp32_cat: "IoT & Embedded Systems",
+        proj_esp32_title: "ESP32 Smart Home Automation",
+        proj_esp32_desc: "Smart home automation system built on ESP32 microcontroller, featuring ambient sensors (temperature, humidity, light), relay actuators, and wireless telemetry via MQTT / Web Server.",
         contact_title: "Let's create something together.",
-        contact_desc: "Currently available for freelance opportunities and full-time roles.",
+        contact_desc: "Available for new software engineering opportunities, collaborations, and projects.",
         footer_rights: "All rights reserved.",
         footer_note: "Designed with precision."
     },
     it: {
         nav_about: "Chi Sono",
-        nav_exp: "Esperienza",
         nav_work: "Progetti",
         nav_contact: "Contatti",
-        hero_greeting: "Ciao, sono",
-        hero_subtitle: "Sviluppatore Creativo & Designer",
-        hero_desc: "Creo esperienze digitali di alto livello con un focus sul design minimalista, codice pulito e interazioni centrate sull'utente.",
-        btn_contact: "Contattami",
-        btn_work: "I Miei Lavori",
-        about_title: "Chi Sono",
-        about_p1: "Con una passione per l'estetica e la funzionalità, costruisco prodotti digitali che non sono solo belli da vedere, ma che funzionano alla perfezione. Il mio approccio combina pensiero strategico e tecnologie web moderne.",
-        about_p2: "Mi specializzo nella creazione di siti web responsivi, accessibili e altamente interattivi che lasciano un'impressione duratura.",
-        skills_title: "Competenze Principali",
-        exp_title: "Esperienza",
-        exp1_role: "Sviluppatore Senior",
-        exp1_date: "2021 — Presente",
-        exp1_desc: "Ho guidato il team di sviluppo frontend nella creazione di applicazioni web scalabili. Ho fatto da mentore a sviluppatori junior e stabilito linee guida per il design system.",
-        exp2_role: "UI/UX Designer & Sviluppatore",
-        exp2_date: "2018 — 2021",
-        exp2_desc: "Ho progettato e implementato portfolio di alta gamma, piattaforme e-commerce e campagne interattive per clienti internazionali.",
         nav_edu: "Istruzione",
+        hero_greeting: "Ciao, sono",
+        hero_subtitle: "Ingegnere Informatico & Software Developer",
+        hero_desc: "Laureato in Ingegneria Informatica con passione per lo sviluppo software, reti e telecomunicazioni, agenti AI, IoT, sistemi embedded, sicurezza informatica e cybersecurity.",
+        btn_contact: "Contattami",
+        btn_work: "I Miei Progetti",
+        about_title: "Chi Sono",
+        about_p1: "Laureato in Ingegneria Informatica (L-8) presso l'Università degli Studi di Catania, con solide competenze nell'ingegneria del software, reti di calcolatori e sviluppo moderno.",
+        about_p2: "Appassionato di sistemi software scalabili, elaborazione del segnale, agenti AI e applicazioni web reattive e performanti.",
+        skills_title: "Competenze Tecniche",
+        skill_ai: "Agenti AI",
         edu_title: "Istruzione",
-        edu1_degree: "Laurea Triennale in Ingegneria Informatica",
+        edu1_degree: "Laurea Triennale in Ingegneria Informatica (L-8)",
         edu1_date: "2022 — 2025",
-        edu1_school: "Università",
-        edu1_desc: "Focus sullo sviluppo software, sistemi informatici e principi di ingegneria.",
+        edu1_school: "Università degli Studi di Catania",
+        edu1_desc: "Voto: 105. Tesi di laurea su tecniche di Deep Learning applicate alla previsione e analisi del Rischio Idrogeologico.",
         edu2_degree: "Diploma di Maturità Scientifica",
         edu2_date: "2015 — 2020",
-        edu2_school: "Liceo Scientifico",
-        edu2_desc: "Voto: 100/100.",
-        work_title: "Lavori Selezionati",
-        proj1_cat: "E-Commerce",
-        proj2_cat: "Piattaforma SaaS",
-        btn_view_proj: "Vedi Progetto",
+        edu2_school: "Liceo Scientifico Concetto Marchesi",
+        edu2_desc: "Voto: 100/100. Percorso scientifico con approfondimento in matematica, fisica, logica e scienze applicate.",
+        work_title: "Progetti Selezionati",
+        btn_view_proj: "Vedi su GitHub",
+        badge_thesis: "Tesi di Laurea",
+        proj_thesis_cat: "Deep Learning & AI",
+        proj_thesis_title: "Tesi: Deep Learning per il Rischio Idrogeologico",
+        proj_thesis_desc: "Studio e applicazione di architetture di Deep Learning per l'elaborazione di dati geo-ambientali, analisi del territorio e modelli predittivi per la stima e mitigazione del rischio idrogeologico.",
+        proj_youtube_cat: "Sviluppo Web Full-Stack",
+        proj_youtube_title: "YouTube Clone & Social Platform",
+        proj_youtube_desc: "Piattaforma social video con interfaccia grafica ispirata a YouTube, interazione dinamica frontend-backend, gestione video e database; inizialmente sviluppata in PHP e MySQL, successivamente portata su framework Laravel.",
+        proj_sweng_cat: "Ingegneria del Software",
+        proj_sweng_title: "Progetto Ingegneria del Software",
+        proj_sweng_desc: "Progetto software completo sviluppato seguendo pattern architetturali, principi di clean code, testing e controllo di versione con GitHub.",
+        proj_gnuradio_cat: "Sistemi DSP & SDR",
+        proj_gnuradio_title: "GNU Radio Signal Processing",
+        proj_gnuradio_desc: "Flowgraph Software Defined Radio per elaborazione digitale dei segnali, analisi spettrale, modulazione/demodulazione e comunicazioni RF.",
+        proj_omnet_cat: "Simulazione di Reti",
+        proj_omnet_title: "OMNeT++ Network Simulator",
+        proj_omnet_desc: "Simulazioni ad eventi discreti per l'analisi di instradamento pacchetti, congestione di rete, topologie complesse e metriche di prestazione.",
+        proj_esp32_cat: "IoT & Sistemi Embedded",
+        proj_esp32_title: "ESP32 Smart Home Automation",
+        proj_esp32_desc: "Sistema di automazione domestica basato su microcontrollore ESP32, sensori ambientali (temperatura, umidità, illuminazione), controllo relè e telemetria wireless via MQTT / Web Server.",
         contact_title: "Creiamo qualcosa insieme.",
-        contact_desc: "Attualmente disponibile per opportunità freelance e ruoli full-time.",
+        contact_desc: "Disponibile per nuove opportunità professionali, collaborazioni e progetti software.",
         footer_rights: "Tutti i diritti riservati.",
         footer_note: "Progettato con precisione."
     }
@@ -87,18 +107,11 @@ class Particle {
         this.y = y;
         this.canvas = canvas;
         this.ctx = ctx;
-        // Dimensione molto più varia (molte piccole, alcune molto grandi)
         this.size = (Math.random() * Math.random()) * 7 + 0.5;
-
-        // Movimento più caotico e veloce
         this.speedX = Math.random() * 2.5 - 1.25;
         this.speedY = Math.random() * 2.5 - 1.25;
-
-        // Opacità iniziale casuale per ogni particella
-        const alpha = Math.random() * 0.5 + 0.2; // tra 0.2 e 0.7
+        const alpha = Math.random() * 0.5 + 0.2;
         this.color = `rgba(139, 92, 246, ${alpha})`;
-
-        // Velocità di rimpicciolimento molto variabile
         this.shrinkRate = Math.random() * 0.07 + 0.015;
     }
     update() {
@@ -150,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 isMouseMoving = false;
             }, 100);
 
-            // Aggiungi particelle al movimento del mouse solo se non siamo sulla sezione hero e non sulla navbar
             if (!e.target.closest('#hero') && !e.target.closest('#navbar')) {
                 for (let i = 0; i < 2; i++) {
                     particlesArray.push(new Particle(mouse.x, mouse.y, canvas, ctx));
@@ -197,45 +209,81 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    const langToggle = document.getElementById('lang-toggle');
+    // Globe Dropdown Language Selector
+    const langDropdownWrapper = document.getElementById('lang-dropdown-wrapper');
+    const langDropdownBtn = document.getElementById('lang-dropdown-btn');
+    const langCurrentLabel = document.getElementById('lang-current-label');
+    const langOptions = document.querySelectorAll('.lang-option');
     const i18nElements = document.querySelectorAll('[data-i18n]');
 
-    if (langToggle) {
-        const activeLabel = langToggle.querySelector('.lang-active-label');
-        const inactiveLabel = langToggle.querySelector('.lang-inactive-label');
+    const setLanguage = (lang) => {
+        if (!i18n[lang]) return;
+        document.documentElement.lang = lang;
+        if (langCurrentLabel) {
+            langCurrentLabel.textContent = lang.toUpperCase();
+        }
 
-        const setLanguage = (lang) => {
-            langToggle.setAttribute('data-lang', lang);
-            const otherLang = lang === 'en' ? 'it' : 'en';
-            activeLabel.textContent = lang.toUpperCase();
-            inactiveLabel.textContent = otherLang.toUpperCase();
+        langOptions.forEach(opt => {
+            if (opt.getAttribute('data-lang') === lang) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
+        });
 
-            i18nElements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[lang] && i18n[lang][key]) {
-                    el.textContent = i18n[lang][key];
-                }
+        i18nElements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (i18n[lang] && i18n[lang][key]) {
+                el.textContent = i18n[lang][key];
+            }
+        });
+
+        localStorage.setItem('lang', lang);
+    };
+
+    if (langDropdownBtn && langDropdownWrapper) {
+        langDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = langDropdownWrapper.classList.toggle('open');
+            langDropdownBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const selectedLang = option.getAttribute('data-lang');
+                setLanguage(selectedLang);
+                langDropdownWrapper.classList.remove('open');
+                langDropdownBtn.setAttribute('aria-expanded', 'false');
             });
-            localStorage.setItem('lang', lang);
-        };
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!langDropdownWrapper.contains(e.target)) {
+                langDropdownWrapper.classList.remove('open');
+                langDropdownBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                langDropdownWrapper.classList.remove('open');
+                langDropdownBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         // Initialize language
         const savedLang = localStorage.getItem('lang');
-        if (savedLang) {
-            if (savedLang === 'it') setLanguage('it');
+        if (savedLang && (savedLang === 'it' || savedLang === 'en')) {
+            setLanguage(savedLang);
         } else {
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang && browserLang.toLowerCase().startsWith('it')) {
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            if (browserLang.startsWith('en')) {
+                setLanguage('en');
+            } else {
                 setLanguage('it');
             }
         }
-
-        langToggle.addEventListener('click', () => {
-            const currentLang = langToggle.getAttribute('data-lang');
-            const newLang = currentLang === 'en' ? 'it' : 'en';
-            setLanguage(newLang);
-        });
     }
 
 
@@ -265,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Ensure scrolling is re-enabled if window is resized above mobile breakpoint
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 900) {
                 if (navLinks.classList.contains('active')) {
                     hamburger.classList.remove('active');
                     navLinks.classList.remove('active');
