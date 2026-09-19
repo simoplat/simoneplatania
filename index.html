@@ -1,98 +1,111 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simone Platania | Portfolio</title>
-    <meta name="description" content="Ingegnere Informatico & Software Developer - Portfolio di Simone Platania.">
+    <meta name="description" content="Computer Engineering Graduate & Software Developer - Portfolio of Simone Platania">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <canvas id="particle-canvas"></canvas>
-
     <header id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">Simone Platania<span style="color: var(--accent-color)">.</span></a>
             <div class="nav-right">
                 <nav>
                     <ul class="nav-links">
-                        <li><a href="#about" data-i18n="nav_about">Chi Sono</a></li>
-                        <li><a href="#education" data-i18n="nav_edu">Istruzione</a></li>
-                        <li><a href="#projects" data-i18n="nav_work">Progetti</a></li>
-                        <li><a href="#contact" data-i18n="nav_contact">Contatti</a></li>
+                        <li><a href="#about" data-i18n="nav_about">About</a></li>
+                        <li><a href="#education" data-i18n="nav_edu">Education</a></li>
+                        <li><a href="#projects" data-i18n="nav_work">Projects</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
                         <li class="nav-toggles-wrapper">
                             <!-- Globe Dropdown Language Selector -->
                             <div class="lang-dropdown-wrapper" id="lang-dropdown-wrapper">
-                                <button id="lang-dropdown-btn" class="lang-dropdown-btn" aria-label="Seleziona lingua"
+                                <button id="lang-dropdown-btn" class="lang-dropdown-btn" aria-label="Select language"
                                     aria-expanded="false" aria-haspopup="true">
-                                    <svg class="icon-globe" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    <svg class="icon-globe" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
                                         <path
-                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                                        </path>
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                                     </svg>
-                                    <span class="lang-current-label" id="lang-current-label">IT</span>
+                                    <span id="lang-current-label">EN</span>
                                     <svg class="icon-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                         stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                        <polyline points="6 9 12 15 18 9" />
                                     </svg>
                                 </button>
-                                <ul class="lang-dropdown-menu" id="lang-menu" role="menu">
-                                    <li role="menuitem">
-                                        <button type="button" class="lang-option active" data-lang="it">
-                                            <span class="lang-flag">🇮🇹</span>
-                                            <span class="lang-name">Italiano</span>
+                                <ul class="lang-dropdown-menu" role="menu" aria-label="Language">
+                                    <li>
+                                        <button class="lang-option" data-lang="it" role="menuitem">
                                             <span class="lang-code">IT</span>
+                                            <span class="lang-name">Italiano</span>
                                         </button>
                                     </li>
-                                    <li role="menuitem">
-                                        <button type="button" class="lang-option" data-lang="en">
-                                            <span class="lang-flag">🇬🇧</span>
-                                            <span class="lang-name">English</span>
+                                    <li>
+                                        <button class="lang-option active" data-lang="en" role="menuitem">
                                             <span class="lang-code">EN</span>
+                                            <span class="lang-name">English</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="lang-option" data-lang="es" role="menuitem">
+                                            <span class="lang-code">ES</span>
+                                            <span class="lang-name">Español</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="lang-option" data-lang="fr" role="menuitem">
+                                            <span class="lang-code">FR</span>
+                                            <span class="lang-name">Français</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button class="lang-option" data-lang="de" role="menuitem">
+                                            <span class="lang-code">DE</span>
+                                            <span class="lang-name">Deutsch</span>
                                         </button>
                                     </li>
                                 </ul>
                             </div>
 
-                            <!-- Theme Toggle -->
-                            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Switch theme">
-                                <!-- Moon icon (dark mode active) -->
+                            <!-- Theme Toggle Button -->
+                            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambia tema">
+                                <!-- Moon Icon (Shown in Dark Mode) -->
                                 <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                                 </svg>
-                                <!-- Sun icon (light mode active) -->
+                                <!-- Sun Icon (Shown in Light Mode) -->
                                 <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="5" />
-                                    <line x1="12" y1="1" x2="12" y2="3" />
-                                    <line x1="12" y1="21" x2="12" y2="23" />
-                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                                    <line x1="1" y1="12" x2="3" y2="12" />
-                                    <line x1="21" y1="12" x2="23" y2="12" />
-                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                                 </svg>
                             </button>
                         </li>
                     </ul>
                 </nav>
-                <div class="hamburger" aria-label="Toggle navigation">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
             </div>
         </div>
     </header>
@@ -103,21 +116,21 @@
             <canvas id="hero-canvas"></canvas>
             <div class="container hero-container">
                 <div class="hero-text fade-in">
-                    <p class="greeting" data-i18n="hero_greeting">Ciao, sono</p>
+                    <p class="greeting" data-i18n="hero_greeting">Hello, I am</p>
                     <h1 class="title">Simone Platania</h1>
-                    <h2 class="subtitle" data-i18n="hero_subtitle">Ingegnere Informatico & Software Developer</h2>
+                    <h2 class="subtitle" data-i18n="hero_subtitle">Computer Engineering & Software Developer</h2>
                     <p class="description" data-i18n="hero_desc">
-                        Laureato in Ingegneria Informatica con passione per lo sviluppo software, reti e
-                        telecomunicazioni, agenti AI, IoT, sistemi embedded, sicurezza informatica e cybersecurity.
+                        Computer engineering graduate passionate about software development, network systems, AI agents, IoT, embedded systems, computer security and cybersecurity.
                     </p>
                     <div class="hero-actions">
-                        <a href="#contact" class="btn btn-primary" data-i18n="btn_contact">Contattami</a>
-                        <a href="#projects" class="btn btn-secondary" data-i18n="btn_work">I Miei Progetti</a>
+                        <a href="#contact" class="btn btn-primary" data-i18n="btn_contact">Get in Touch</a>
+                        <a href="#projects" class="btn btn-secondary" data-i18n="btn_work">View My Projects</a>
                     </div>
                 </div>
                 <div class="hero-visual fade-in">
                     <div class="image-wrapper">
-                        <img src="assets/profile_avatar.png" alt="Simone Platania" class="profile-img">
+                        <!-- Profile Image -->
+                        <img src="assets/profile_avatar.jpg" alt="Simone Platania" class="profile-img" width="682" height="1024">
                         <div class="img-backdrop"></div>
                     </div>
                 </div>
@@ -127,29 +140,30 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title reveal-text" data-i18n="about_title">Chi Sono</h2>
+                <h2 class="section-title reveal-text" data-i18n="about_title">About Me</h2>
                 <div class="about-content">
                     <div class="about-text fade-in-up">
-                        <p data-i18n="about_p1">Laureato in Ingegneria Informatica (L-8) presso l'Università degli Studi
-                            di Catania, con solide competenze nell'ingegneria del software, reti di calcolatori e
-                            sviluppo moderno.</p>
-                        <p data-i18n="about_p2">Appassionato di sistemi software scalabili, elaborazione del segnale,
-                            agenti AI e applicazioni web reattive e performanti.</p>
+                        <p data-i18n="about_p1">Graduated in Computer Engineering (L-8) from the Università degli Studi di Catania, with a strong foundation in software engineering, networking, and modern development paradigms.</p>
+                        <p data-i18n="about_p2">During my Master's Degree studies, I focused in depth on cybersecurity and computer security, software architecture and design patterns, industrial automation and automotive communication networks (PROFINET, CAN bus, Ethernet), as well as advanced network architectures up to 5G.</p>
+                        <p data-i18n="about_p3">Passionate about scalable complex systems, signal processing, AI agents, and high-performance modern web applications.</p>
                     </div>
                     <div class="skills-container fade-in-up">
-                        <h3 data-i18n="skills_title">Competenze Tecniche</h3>
+                        <h3 data-i18n="skills_title">Technical Skills</h3>
                         <div class="skills-grid">
                             <span class="skill-tag">C</span>
                             <span class="skill-tag">C++</span>
                             <span class="skill-tag">Java</span>
-                            <span class="skill-tag">SQL</span>
                             <span class="skill-tag">Python</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
                             <span class="skill-tag">PHP</span>
                             <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">SQL</span>
                             <span class="skill-tag">Arduino</span>
                             <span class="skill-tag">VHDL</span>
                             <span class="skill-tag">GitHub</span>
-                            <span class="skill-tag skill-highlight" data-i18n="skill_ai">Agenti AI</span>
+                            <span class="skill-tag skill-highlight" data-i18n="skill_ai">AI Agents</span>
                         </div>
                     </div>
                 </div>
@@ -159,32 +173,62 @@
         <!-- Education Section -->
         <section id="education" class="experience-section">
             <div class="container">
-                <h2 class="section-title reveal-text" data-i18n="edu_title">Istruzione</h2>
+                <h2 class="section-title reveal-text" data-i18n="edu_title">Education</h2>
                 <div class="timeline">
-                    <!-- Most recent: Ingegneria Informatica L-8 Università degli Studi di Catania 2022-2025 voto 105 -->
+                    <!-- Master's Degree in Computer Engineering -->
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="edu1_degree">Laurea Triennale in Ingegneria Informatica (L-8)</h3>
-                                <span class="timeline-date" data-i18n="edu1_date">2022 — 2025</span>
+                                <h3 data-i18n="edu0_degree">Master's Degree in Computer Engineering</h3>
+                                <span class="timeline-date" data-i18n="edu0_date">2025 — In progress</span>
                             </div>
-                            <h4 class="company" data-i18n="edu1_school">Università degli Studi di Catania</h4>
-                            <p data-i18n="edu1_desc">Voto: 105. Tesi di laurea su tecniche di Deep Learning applicate
-                                alla previsione e analisi del Rischio Idrogeologico.</p>
+                            <h4 class="company">
+                                <svg class="institute-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+                                    <path d="M22 10v6"/>
+                                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                                </svg>
+                                <span data-i18n="edu0_school">Università degli Studi di Catania</span>
+                            </h4>
                         </div>
                     </div>
-                    <!-- 2015-2020: Liceo Scientifico Concetto Marchesi 2015-2020 voto 100 -->
+                    <!-- Bachelor's Degree in Computer Engineering (L-8) -->
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 data-i18n="edu2_degree">Diploma di Maturità Scientifica</h3>
+                                <h3 data-i18n="edu1_degree">Bachelor's Degree in Computer Engineering (L-8)</h3>
+                                <span class="timeline-date" data-i18n="edu1_date">2022 — 2025</span>
+                            </div>
+                            <h4 class="company">
+                                <svg class="institute-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+                                    <path d="M22 10v6"/>
+                                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                                </svg>
+                                <span data-i18n="edu1_school">Università degli Studi di Catania</span>
+                            </h4>
+                            <p data-i18n="edu1_desc">Final Grade: 105/110.<br>Bachelor's thesis on Deep Learning techniques applied to hydrogeological risk prediction and environmental analysis.</p>
+                        </div>
+                    </div>
+                    <!-- Scientific High School Diploma -->
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3 data-i18n="edu2_degree">Scientific High School Diploma</h3>
                                 <span class="timeline-date" data-i18n="edu2_date">2015 — 2020</span>
                             </div>
-                            <h4 class="company" data-i18n="edu2_school">Liceo Scientifico Concetto Marchesi</h4>
-                            <p data-i18n="edu2_desc">Voto: 100/100. Percorso scientifico con approfondimento in
-                                matematica, fisica, logica e scienze applicate.</p>
+                            <h4 class="company">
+                                <svg class="institute-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+                                    <path d="M22 10v6"/>
+                                    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                                </svg>
+                                <span data-i18n="edu2_school">Liceo Scientifico Concetto Marchesi</span>
+                            </h4>
+                            <p data-i18n="edu2_desc">Final Grade: 100/100.</p>
                         </div>
                     </div>
                 </div>
@@ -194,14 +238,10 @@
         <!-- Projects Section -->
         <section id="projects" class="projects-section">
             <div class="container">
-                <h2 class="section-title reveal-text" data-i18n="work_title">Progetti Svolti</h2>
+                <h2 class="section-title reveal-text" data-i18n="work_title">Featured Projects</h2>
                 <div class="projects-grid">
                     <!-- Project 1: Tesi Deep Learning Rischio Idrogeologico -->
                     <article class="project-card fade-in-up">
-                        <div class="project-img-wrapper">
-                            <img src="assets/project_thesis.jpg" alt="Tesi Deep Learning Rischio Idrogeologico"
-                                loading="lazy">
-                        </div>
                         <div class="project-info">
                             <span class="project-category" data-i18n="proj_thesis_cat">Deep Learning & AI</span>
                             <h3 data-i18n="proj_thesis_title">Tesi: Deep Learning per il Rischio Idrogeologico</h3>
@@ -222,10 +262,6 @@
 
                     <!-- Project 2: YouTube Clone & Social Platform -->
                     <article class="project-card fade-in-up">
-                        <div class="project-img-wrapper">
-                            <img src="assets/project_youtube_clone.jpg" alt="YouTube Clone & Social Platform"
-                                loading="lazy">
-                        </div>
                         <div class="project-info">
                             <span class="project-category" data-i18n="proj_youtube_cat">Sviluppo Web Full-Stack</span>
                             <h3 data-i18n="proj_youtube_title">YouTube Clone & Social Platform</h3>
@@ -256,11 +292,8 @@
                         </div>
                     </article>
 
-                    <!-- Project 2: GNU Radio -->
+                    <!-- Project 3: GNU Radio -->
                     <article class="project-card fade-in-up">
-                        <div class="project-img-wrapper">
-                            <img src="assets/project_gnuradio.jpg" alt="GNU Radio" loading="lazy">
-                        </div>
                         <div class="project-info">
                             <span class="project-category" data-i18n="proj_gnuradio_cat">Sistemi DSP & SDR</span>
                             <h3 data-i18n="proj_gnuradio_title">GNU Radio Signal Processing</h3>
@@ -279,11 +312,8 @@
                         </div>
                     </article>
 
-                    <!-- Project 3: Progetto Ingegneria del Software -->
+                    <!-- Project 4: Progetto Ingegneria del Software -->
                     <article class="project-card fade-in-up">
-                        <div class="project-img-wrapper">
-                            <img src="assets/project_sweng.jpg" alt="Progetto Ingegneria del Software" loading="lazy">
-                        </div>
                         <div class="project-info">
                             <span class="project-category" data-i18n="proj_sweng_cat">Ingegneria del Software</span>
                             <h3 data-i18n="proj_sweng_title">Progetto Ingegneria del Software</h3>
@@ -310,11 +340,8 @@
                         </div>
                     </article>
 
-                    <!-- Project 4: OMNeT++ -->
+                    <!-- Project 5: OMNeT++ -->
                     <article class="project-card fade-in-up">
-                        <div class="project-img-wrapper">
-                            <img src="assets/project_omnet.jpg" alt="OMNeT++" loading="lazy">
-                        </div>
                         <div class="project-info">
                             <span class="project-category" data-i18n="proj_omnet_cat">Simulazione di Reti</span>
                             <h3 data-i18n="proj_omnet_title">OMNeT++ Network Simulator</h3>
@@ -333,11 +360,8 @@
                         </div>
                     </article>
 
-                    <!-- Project 5: ESP32 Smart Home -->
+                    <!-- Project 6: ESP32 Smart Home -->
                     <article class="project-card fade-in-up">
-                        <div class="project-img-wrapper">
-                            <img src="assets/project_esp32.jpg" alt="ESP32 Smart Home Automation" loading="lazy">
-                        </div>
                         <div class="project-info">
                             <span class="project-category" data-i18n="proj_esp32_cat">IoT & Sistemi Embedded</span>
                             <h3 data-i18n="proj_esp32_title">ESP32 Smart Home Automation</h3>
@@ -372,9 +396,8 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 <div class="contact-content fade-in-up">
-                    <h2 class="section-title" data-i18n="contact_title">Creiamo qualcosa insieme.</h2>
-                    <p class="contact-desc" data-i18n="contact_desc">Disponibile per nuove opportunità professionali,
-                        collaborazioni e progetti software.</p>
+                    <h2 class="section-title" data-i18n="contact_title">Let's create something together.</h2>
+                    <p class="contact-desc" data-i18n="contact_desc">Available for new software engineering opportunities, collaborations, and projects.</p>
                     <a href="mailto:hello@example.com" class="email-link">hello@example.com</a>
 
                     <div class="social-links">
@@ -415,11 +438,11 @@
 
     <footer>
         <div class="container footer-container">
-            <p>&copy; <span id="year"></span> Simone Platania. <span data-i18n="footer_rights">Tutti i diritti
-                    riservati.</span></p>
+            <p>&copy; <span id="year"></span> Simone Platania. <span data-i18n="footer_rights">All rights reserved.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 
