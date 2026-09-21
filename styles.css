@@ -715,25 +715,6 @@ header.scrolled {
     margin-bottom: 15px;
 }
 
-.institute-icon {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
-    display: inline-block;
-    color: #ffffff;
-    filter: brightness(0) invert(1);
-    flex-shrink: 0;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
-}
-
-[data-theme="light"] .institute-icon {
-    color: #0f172a;
-    filter: none;
-}
-
-.timeline-item:hover .institute-icon {
-    transform: scale(1.12);
-}
 
 .timeline-content p {
     color: var(--text-secondary);
