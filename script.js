@@ -1,61 +1,3 @@
-const i18n = {
-    it: {
-        nav_about: "Chi Sono",
-        nav_work: "Progetti",
-        nav_contact: "Contatti",
-        nav_edu: "Istruzione",
-        hero_greeting: "Ciao, sono",
-        hero_subtitle: "Ingegnere Informatico & Software Developer",
-        hero_desc: "Laureato in Ingegneria Informatica con passione per lo sviluppo software, reti e telecomunicazioni, agenti AI, IoT, sistemi embedded, sicurezza informatica e cybersecurity.",
-        btn_contact: "Contattami",
-        btn_work: "I Miei Progetti",
-        about_title: "Chi Sono",
-        about_p1: "Laureato in Ingegneria Informatica (L-8) presso l'Università degli Studi di Catania, con solide competenze nell'ingegneria del software, reti di calcolatori e sviluppo moderno.",
-        about_p2: "Nel percorso di Laurea Magistrale mi sono occupato in dettaglio di sicurezza informatica e cybersecurity, progettazione del software e applicazione di design pattern architetturali, reti di automazione industriale e per l'automotive, nonché di architetture di rete avanzate fino al 5G.",
-        about_p3: "Appassionato di sistemi software scalabili e complessi, elaborazione del segnale, agenti AI e applicazioni web reattive e performanti.",
-        skills_title: "Competenze Tecniche",
-        skill_ai: "Agenti AI",
-        edu_title: "Istruzione",
-        edu0_degree: "Laurea Magistrale in Ingegneria Informatica",
-        edu0_date: "2025 — In corso",
-        edu0_school: "Università degli Studi di Catania",
-        edu1_degree: "Laurea Triennale in Ingegneria Informatica (L-8)",
-        edu1_date: "2022 — 2025",
-        edu1_school: "Università degli Studi di Catania",
-        edu1_desc: "Voto: 105/110.<br>Tesi di laurea su tecniche di Deep Learning applicate alla previsione e analisi del Rischio Idrogeologico.",
-        edu2_degree: "Diploma di Maturità Scientifica",
-        edu2_date: "2015 — 2020",
-        edu2_school: "Liceo Scientifico Concetto Marchesi",
-        edu2_desc: "Voto: 100/100.",
-        work_title: "Progetti Realizzati",
-        btn_view_proj: "Vedi su GitHub",
-        badge_thesis: "Tesi di Laurea",
-        proj_thesis_cat: "Deep Learning & AI",
-        proj_thesis_title: "Tesi: Deep Learning per il Rischio Idrogeologico",
-        proj_thesis_desc: "Studio e applicazione di architetture di Deep Learning per l'elaborazione di dati geo-ambientali, analisi del territorio e modelli predittivi per la stima e mitigazione del rischio idrogeologico.",
-        proj_youtube_cat: "Sviluppo Web Full-Stack",
-        proj_youtube_title: "YouTube Clone & Social Platform",
-        proj_youtube_desc: "Piattaforma social video con interfaccia grafica ispirata a YouTube, interazione dinamica frontend-backend, gestione video e database; inizialmente sviluppata in PHP e MySQL, successivamente portata su framework Laravel.",
-        proj_sweng_cat: "Ingegneria del Software",
-        proj_sweng_title: "Progetto Ingegneria del Software",
-        proj_sweng_desc: "Progetto software completo sviluppato seguendo pattern architetturali, principi di clean code, testing e controllo di versione con GitHub.",
-        proj_gnuradio_cat: "Sistemi DSP & SDR",
-        proj_gnuradio_title: "GNU Radio Signal Processing",
-        proj_gnuradio_desc: "Flowgraph Software Defined Radio per elaborazione digitale dei segnali, analisi spettrale, modulazione/demodulazione e comunicazioni RF.",
-        proj_omnet_cat: "Simulazione di Reti",
-        proj_omnet_title: "OMNeT++ Network Simulator",
-        proj_omnet_desc: "Simulazioni ad eventi discreti per l'analisi di instradamento pacchetti, congestione di rete, topologie complesse e metriche di prestazione.",
-        proj_esp32_cat: "IoT & Sistemi Embedded",
-        proj_esp32_title: "ESP32 Smart Home Automation",
-        proj_esp32_desc: "Sistema di automazione domestica basato su microcontrollore ESP32, sensori ambientali (temperatura, umidità, illuminazione), controllo relè e telemetria wireless via MQTT / Web Server.",
-        contact_title: "Contattami",
-        contact_desc: "Vuoi propormi un'opportunità lavorativa o una collaborazione?",
-        footer_rights: "Tutti i diritti riservati.",
-        footer_note: "Progettato con precisione."
-    },
-    ...(typeof window !== 'undefined' && window.externalTranslations ? window.externalTranslations : {})
-};
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Toggle
@@ -81,50 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Globe Dropdown Language Selector
     const langDropdownWrapper = document.getElementById('lang-dropdown-wrapper');
     const langDropdownBtn = document.getElementById('lang-dropdown-btn');
-    const langCurrentLabel = document.getElementById('lang-current-label');
-    const langOptions = document.querySelectorAll('.lang-option');
-    const i18nElements = document.querySelectorAll('[data-i18n]');
-
-    const setLanguage = (lang) => {
-        if (!i18n[lang]) return;
-        document.documentElement.lang = lang;
-        if (langCurrentLabel) {
-            langCurrentLabel.textContent = lang.toUpperCase();
-        }
-
-        langOptions.forEach(opt => {
-            if (opt.getAttribute('data-lang') === lang) {
-                opt.classList.add('active');
-            } else {
-                opt.classList.remove('active');
-            }
-        });
-
-        i18nElements.forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (i18n[lang] && i18n[lang][key]) {
-                el.innerHTML = i18n[lang][key];
-            }
-        });
-
-        localStorage.setItem('lang', lang);
-    };
 
     if (langDropdownBtn && langDropdownWrapper) {
         langDropdownBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             const isOpen = langDropdownWrapper.classList.toggle('open');
             langDropdownBtn.setAttribute('aria-expanded', isOpen);
-        });
-
-        langOptions.forEach(option => {
-            option.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const selectedLang = option.getAttribute('data-lang');
-                setLanguage(selectedLang);
-                langDropdownWrapper.classList.remove('open');
-                langDropdownBtn.setAttribute('aria-expanded', 'false');
-            });
         });
 
         document.addEventListener('click', (e) => {
@@ -140,14 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 langDropdownBtn.setAttribute('aria-expanded', 'false');
             }
         });
-
-        // Initialize language: default to English for first-time visitors
-        const savedLang = localStorage.getItem('lang');
-        if (savedLang && i18n[savedLang]) {
-            setLanguage(savedLang);
-        } else {
-            setLanguage('en');
-        }
     }
 
 
