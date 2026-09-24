@@ -10,7 +10,7 @@ const i18n = {
         btn_contact: "Contattami",
         btn_work: "I Miei Progetti",
         about_title: "Chi Sono",
-        about_p1: "Laureato in Ingegneria Informatica (L-8) presso l'Università degli Studi di Catania e attualmente studente del corso di Laurea Magistrale (LM-32) nello stesso ateneo.",
+        about_p1: "Da sempre appassionato di computer, ho frequentato il liceo scientifico per acquisire solide basi in matematica e fisica. Laureato in Ingegneria Informatica (L-8) presso l'Università degli Studi di Catania e attualmente studente del corso di Laurea Magistrale (LM-32) nello stesso ateneo.",
         about_p2: "Durante la triennale ho costruito solide basi ingegneristiche (teoria dei segnali, controlli automatici, architetture dei calcolatori e delle reti). Sul fronte applicativo ho sviluppato competenze di programmazione in C e Java, sviluppo web con PHP, Laravel e MySQL, e sviluppo di sistemi IoT e sensoristica tramite microcontrollori quali Arduino ed ESP32.",
         about_p3: "Nel percorso magistrale ho approfondito le architetture di calcolo avanzate, la cybersecurity e la progettazione software orientata agli oggetti con design patterns. Ho inoltre studiato i protocolli per l'automazione industriale e l'automotive, l'architettura delle reti fino al 5G e i relativi mezzi trasmissivi.",
         skills_title: "Competenze Tecniche",
