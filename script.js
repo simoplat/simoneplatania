@@ -161,40 +161,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('.nav-links li a');
 
     if (hamburger && navLinks) {
+        const setMenuState = (open) => {
+            hamburger.classList.toggle('active', open);
+            navLinks.classList.toggle('active', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            document.documentElement.classList.toggle('menu-open', open);
+            document.body.classList.toggle('menu-open', open);
+            document.documentElement.style.overflow = open ? 'hidden' : '';
+            document.body.style.overflow = open ? 'hidden' : '';
+        };
+
         hamburger.addEventListener('click', () => {
-            const isActive = hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-            document.body.style.overflow = isActive ? 'hidden' : '';
+            const isOpen = navLinks.classList.contains('active');
+            setMenuState(!isOpen);
         });
 
         links.forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                setMenuState(false);
             });
         });
 
         // Close on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                setMenuState(false);
             }
         });
+
+        // Prevent background scrolling while touch-dragging when menu is open
+        document.addEventListener('touchmove', (e) => {
+            if (navLinks.classList.contains('active')) {
+                if (!navLinks.contains(e.target)) {
+                    e.preventDefault();
+                }
+            }
+        }, { passive: false });
 
         // Ensure scrolling is re-enabled if window is resized above mobile breakpoint
         window.addEventListener('resize', () => {
             if (window.innerWidth > 900) {
                 if (navLinks.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    hamburger.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
+                    setMenuState(false);
                 }
             }
         });
