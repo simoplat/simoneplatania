@@ -165,10 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.toggle('active', open);
             navLinks.classList.toggle('active', open);
             hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-            document.documentElement.classList.toggle('menu-open', open);
             document.body.classList.toggle('menu-open', open);
-            document.documentElement.style.overflow = open ? 'hidden' : '';
-            document.body.style.overflow = open ? 'hidden' : '';
         };
 
         hamburger.addEventListener('click', () => {
