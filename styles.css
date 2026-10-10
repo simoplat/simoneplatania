@@ -267,7 +267,8 @@ a {
 }
 
 /* Light theme: hamburger lines */
-[data-theme="light"] .hamburger .line {
+[data-theme="light"] .hamburger .line,
+[data-theme="light"] .hamburger.active .line {
     background: var(--text-primary);
 }
 
@@ -1014,7 +1015,7 @@ footer {
     }
 
     .hamburger.active .line {
-        background: #ffffff;
+        background: var(--text-primary);
     }
 
     .nav-links {
